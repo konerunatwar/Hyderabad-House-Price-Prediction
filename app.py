@@ -5,8 +5,17 @@ import numpy as np
 import pickle
 import pandas as pd
 import json
-
+from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 pickle_in = open("less_hydprice.pickle","rb")
 model=pickle.load(pickle_in)
 f = open('columns.json',)
