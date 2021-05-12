@@ -32,7 +32,7 @@ def index():
     return {'message': 'Hyderabad House Price Prediction made by natwar koneru'}
 
 @app.post('/predict')
-def predict_rent(data:value):
+def predict_price(data:value):
     data = data.dict()
     property_size= data['property_size']
     bhk= data['bhk']
